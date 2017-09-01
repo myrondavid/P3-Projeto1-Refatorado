@@ -10,22 +10,25 @@ import java.util.ArrayList;
 public class BancoAlocacao implements IBanco {
     ArrayList<Alocacao> alocacoes = new ArrayList<Alocacao>();
     @Override
-    public void cadastra(Object objeto) {
+    public boolean cadastra(Object objeto) {
 
+        return false;
     }
 
     @Override
-    public void modifica(Object objeto) {
+    public boolean modifica(Object objeto) {
 
+        return false;
     }
 
     @Override
-    public void remove(Object objeto) {
+    public boolean remove(Object objeto) {
 
+        return false;
     }
 
     @Override
-    public void getFromBanco(Object objeto) {
-
+    public Object getFromBanco(int id) {
+        return null;
     }
 }

@@ -11,22 +11,37 @@ public class BancoUsuario implements IBanco {
 
     ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
     @Override
-    public void cadastra(Object objeto) {
+    public boolean cadastra(Object objeto) {
+        if(objeto != null) {
+            usuarios.add((Usuario) objeto);
+            return true;
+        }
+        else return false;
 
     }
 
     @Override
-    public void modifica(Object objeto) {
+    public boolean modifica(Object objeto) {
+        Usuario u = (Usuario) objeto;
+        if(u != null){
+            usuarios.set(u.getId(), u);
+            return true;
+        }
+        else return false;
+    }
+
+    @Override
+    public boolean remove(Object objeto) {
+        if(objeto != null){
+            usuarios.remove(objeto);
+            return true;
+        }
+        else return false;
 
     }
 
     @Override
-    public void remove(Object objeto) {
-
-    }
-
-    @Override
-    public void getFromBanco(Object objeto) {
-
+    public Object getFromBanco(int id) {
+        return usuarios.get(id);
     }
 }
