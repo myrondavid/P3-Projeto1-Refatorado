@@ -2,13 +2,18 @@ package Models.Recurso;
 
 import Patterns.State.IAlocacaoState;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
  * Created by myron on 01/09/2017.
  */
 public abstract class Recurso {
+    private static final AtomicInteger count = new AtomicInteger(0);
     protected int Id;
     protected String nome;
     private IAlocacaoState status;
+
+
 
 
 
