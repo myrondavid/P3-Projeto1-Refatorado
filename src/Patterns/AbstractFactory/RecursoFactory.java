@@ -9,6 +9,18 @@ import Models.Recurso.Sala;
  * Created by myron on 01/09/2017.
  */
 public class RecursoFactory implements IRecursoFactory {
+    private static RecursoFactory instance;
+
+    private RecursoFactory(){
+
+    }
+
+    public static RecursoFactory getInstance(){
+        if(instance == null)
+            instance = new RecursoFactory();
+        return instance;
+    }
+
     @Override
     public Auditorio criaAuditorio() {
         return new Auditorio();

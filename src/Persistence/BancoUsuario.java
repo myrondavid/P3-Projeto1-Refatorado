@@ -16,7 +16,7 @@ public class BancoUsuario implements IBanco {
             usuarios.add((Usuario) objeto);
             return true;
         }
-        else return false;
+        return false;
 
     }
 
@@ -27,7 +27,7 @@ public class BancoUsuario implements IBanco {
             usuarios.set(u.getId(), u);
             return true;
         }
-        else return false;
+        return false;
     }
 
     @Override

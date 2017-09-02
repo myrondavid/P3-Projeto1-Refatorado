@@ -13,21 +13,34 @@ public class BancoAtividade implements IBanco {
 
     @Override
     public boolean cadastra(Object objeto) {
+        if(objeto != null){
+            atividades.add((Atividade) objeto);
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean modifica(Object objeto) {
+        Atividade atv = (Atividade) objeto;
+        if(atv != null){
+            atividades.set(atv.getId(), atv);
+            return true;
+        }
         return false;
     }
 
     @Override
     public boolean remove(Object objeto) {
+        if(objeto != null){
+            atividades.remove((Atividade) objeto);
+            return true;
+        }
         return false;
     }
 
     @Override
     public Object getFromBanco(int id) {
-        return null;
+        return atividades.get(id);
     }
 }

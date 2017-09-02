@@ -10,67 +10,78 @@ import java.util.ArrayList;
 /**
  * Created by myron on 01/09/2017.
  */
-public class BancoSingleton {
+public final class BancoSingleton {
+    private static BancoUsuario usuarioBD = new BancoUsuario();
+    private static BancoRecurso recursoBD = new BancoRecurso();
+    private static BancoAtividade atividadeBD = new BancoAtividade();
+    private static BancoAlocacao alocacaoBD = new BancoAlocacao();
 
-    BancoUsuario usuarioBD = new BancoUsuario();
-    BancoRecurso recursoBD = new BancoRecurso();
-    BancoAtividade atividadeBD = new BancoAtividade();
-    BancoAlocacao alocacaoBD = new BancoAlocacao();
+    private static BancoSingleton instance;
+
+    protected BancoSingleton(){
+
+    }
+
+    public static BancoSingleton getInstance(){
+        if(instance == null)
+            instance = new BancoSingleton();
+        return instance;
+    }
 
     //Usuario
-    public void cadastraUsuario(){
-
+    public static boolean cadastraUsuario(Usuario u){
+        return usuarioBD.cadastra(u);
     }
-    public void modificaUsuario(){
-
+    public static boolean modificaUsuario(Usuario u){
+        return usuarioBD.modifica(u);
     }
-    public void removeUsuario(){
-
+    public static boolean removeUsuario(Usuario u){
+        return usuarioBD.remove(u);
     }
-    public void buscaUsuario(){
-
+    public static Usuario buscaUsuario(int id){
+        return (Usuario) usuarioBD.getFromBanco(id);
     }
 
     //Recurso
-    public void cadastraRecurso(){
-
+    public static boolean cadastraRecurso(Recurso r){
+        return recursoBD.cadastra(r);
     }
-    public void modificaRecurso(){
-
+    public static boolean modificaRecurso(Recurso r){
+        return recursoBD.modifica(r);
     }
-    public void removeRecurso(){
-
+    public static boolean removeRecurso(Recurso r){
+        return recursoBD.remove(r);
     }
-    public void buscaRecurso(){
-
+    public static Recurso buscaRecurso(int id){
+        return (Recurso) recursoBD.getFromBanco(id);
     }
 
     //Atividade
-    public void cadastraAtividade(){
-
+    public static boolean cadastraAtividade(Atividade a){
+        return atividadeBD.cadastra(a);
     }
-    public void modificaAtividade(){
-
+    public static boolean modificaAtividade(Atividade a){
+        return atividadeBD.modifica(a);
     }
-    public void removeAtividade(){
-
+    public static boolean removeAtividade(Atividade a){
+        return atividadeBD.remove(a);
     }
-    public void buscaAtividade(){
-
+    public static Atividade buscaAtividade(int id){
+        return (Atividade) atividadeBD.getFromBanco(id);
     }
 
     //Alocacao
-    public void cadastraAlocacao(){
-
+    public static boolean cadastraAlocacao(Alocacao a){
+        return alocacaoBD.cadastra(a);
     }
-    public void modificaAlocacao(){
-
+    public static boolean modificaAlocacao(Alocacao a){
+        return alocacaoBD.modifica(a);
     }
-    public void removeAlocacao(){
-
+    public static boolean removeAlocacao(Alocacao a){
+        return alocacaoBD.remove(a);
     }
-    public void buscaAlocacao(){
-
+    public static Alocacao buscaAlocacao(int id){
+        return (Alocacao) alocacaoBD.getFromBanco(id);
     }
 
 

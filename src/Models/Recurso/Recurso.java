@@ -9,20 +9,23 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public abstract class Recurso {
     private static final AtomicInteger count = new AtomicInteger(0);
-    protected int Id;
+    protected int id;
     protected String nome;
     private IAlocacaoState status;
 
+    public Recurso(){
+        this.id = count.getAndIncrement();
+    }
 
 
 
 
     public int getId() {
-        return Id;
+        return id;
     }
 
     public void setId(int id) {
-        Id = id;
+        id = id;
     }
 
     public String getNome() {
