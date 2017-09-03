@@ -1,6 +1,6 @@
 package Menus;
 
-import Persistence.BancoSingleton;
+import Persistence.Banco;
 
 import java.util.Scanner;
 

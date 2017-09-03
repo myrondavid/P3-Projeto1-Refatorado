@@ -1,5 +1,7 @@
 package Persistence;
 
+import java.util.ArrayList;
+
 /**
  * Created by myron on 01/09/2017.
  */
@@ -8,4 +10,5 @@ public interface IBanco {
     boolean modifica(Object objeto);
     boolean remove(Object objeto);
     Object getFromBanco(int id);
+
 }

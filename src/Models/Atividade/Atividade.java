@@ -11,7 +11,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 public abstract class Atividade {
     private static final AtomicInteger count = new AtomicInteger(0);
     private int id;
-    protected String titulo, descricao, materialApoio;
+    private String titulo;
+    private String descricao;
+    private String materialApoio;
     protected Usuario responsavel;
     protected ArrayList<Usuario> participantes;
     protected ArrayList<String> infos;
@@ -53,5 +55,29 @@ public abstract class Atividade {
 
     public void setInfos(ArrayList<String> infos) {
         this.infos = infos;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getMaterialApoio() {
+        return materialApoio;
+    }
+
+    public void setMaterialApoio(String materialApoio) {
+        this.materialApoio = materialApoio;
     }
 }

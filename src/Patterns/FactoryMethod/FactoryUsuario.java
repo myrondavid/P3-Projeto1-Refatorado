@@ -1,6 +1,6 @@
 package Patterns.FactoryMethod;
 import Models.Usuario.*;
-import Persistence.BancoSingleton;
+import Persistence.Banco;
 
 /**
  * Created by myron on 01/09/2017.

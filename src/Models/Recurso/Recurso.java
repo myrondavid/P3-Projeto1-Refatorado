@@ -1,6 +1,7 @@
 package Models.Recurso;
 
-import Patterns.State.IAlocacaoState;
+import Models.Usuario.Usuario;
+import Patterns.State.*;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -15,6 +16,7 @@ public abstract class Recurso {
 
     public Recurso(){
         this.id = count.getAndIncrement();
+        this.status = new NaoAlocado();
     }
 
 
@@ -36,12 +38,24 @@ public abstract class Recurso {
         this.nome = nome;
     }
 
-
     public IAlocacaoState getStatus() {
         return status;
     }
 
     public void setStatus(IAlocacaoState status) {
         this.status = status;
+    }
+
+    public void emAndamento(){
+        status = new EmAndamento();
+    }
+    public void emProcessoDeAlocacao(){
+        status = new EmProcessoDeAlocacao();
+    }
+    public void alocado(){
+        status = new Alocado();
+    }
+    public void concluido(){
+        status = new NaoAlocado();
     }
 }
